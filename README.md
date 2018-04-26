@@ -1,9 +1,9 @@
 # TabBarPageController
 
-[![CI Status](https://img.shields.io/travis/conmulligan/PagingTabBarController.svg?style=flat)](https://travis-ci.org/conmulligan/PagingTabBarController)
-[![Version](https://img.shields.io/cocoapods/v/PagingTabBarController.svg?style=flat)](https://cocoapods.org/pods/PagingTabBarController)
-[![License](https://img.shields.io/cocoapods/l/PagingTabBarController.svg?style=flat)](https://cocoapods.org/pods/PagingTabBarController)
-[![Platform](https://img.shields.io/cocoapods/p/PagingTabBarController.svg?style=flat)](https://cocoapods.org/pods/PagingTabBarController)
+[![CI Status](https://img.shields.io/travis/conmulligan/TabBarPageController?style=flat)](https://travis-ci.org/conmulligan/TabBarPageController)
+[![Version](https://img.shields.io/cocoapods/v/TabBarPageController?style=flat)](https://cocoapods.org/pods/TabBarPageController)
+[![License](https://img.shields.io/cocoapods/l/TabBarPageController?style=flat)](https://cocoapods.org/pods/TabBarPageController)
+[![Platform](https://img.shields.io/cocoapods/p/TabBarPageController?style=flat)](https://cocoapods.org/pods/TabBarPageController)
 
 `TabBarPageController` is a container view controller that manages navigation between tabs of content. Each tab is managed by a child view controller embedded in a `UIPageViewController` instance, allowing users to navigate between tabs by selecting tab bar items or swiping left and right.
 
@@ -37,12 +37,13 @@ Requires iOS 9 or greater.
 
 ## Installation
 
-PagingTabBarController is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+`TabBarPageController` is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'PagingTabBarController'
+pod 'TabBarPageController'
 ```
+
+You can also just copy the `TabBarPageController.swift` file into your project.
 
 ## Author
 
@@ -50,4 +51,4 @@ conmulligan, conmulligan@gmail.com
 
 ## License
 
-PagingTabBarController is available under the MIT license. See the LICENSE file for more info.
+`TabBarPageController` is available under the MIT license. See the LICENSE file for more info.
