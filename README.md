@@ -22,10 +22,12 @@ Show a specific view controller:
     tabBarController.show(viewController)
 ```
 
+You can configure the appearance of tab bar items by changing the child view controllers' `UITabBarItem` values.
+
 Although `TabBarPageController` is similar to `UITabBarController` it is not a drop-in replacement and has a number of important differences:
 
 - `TabBarPageController` always hides the tab bar when a child navigation view controller pushes a new view controller. This is to avoid interfering with the navigation controller's back navigation gesture.
-- This is a test
+- Editing and the "more" navigation controller are not supported.
 
 ## Example
 
