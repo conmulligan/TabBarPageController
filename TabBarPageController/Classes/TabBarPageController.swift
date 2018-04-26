@@ -40,9 +40,10 @@ open class TabBarPageController: UIViewController {
     
     /// The page controller instance.
     open lazy var pageViewController: UIPageViewController = {
-        let viewController = UIPageViewController(transitionStyle: .scroll,
-                                                  navigationOrientation: .horizontal,
-                                                  options: [UIPageViewControllerOptionInterPageSpacingKey: Config.PageSpacing])
+        let options = [
+            UIPageViewControllerOptionInterPageSpacingKey: Config.PageSpacing
+        ]
+        let viewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal,  options: options)
         viewController.dataSource = self
         viewController.delegate = self
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -294,30 +295,36 @@ extension TabBarPageController: UITabBarDelegate, UINavigationControllerDelegate
     
     public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if navigationController.viewControllers.first != viewController {
-            self.pageViewController.dataSource = nil
-            updateTabBarOffset(self.tabBar.frame.size.height)
+            // We need to wrap the animation in a GCD block to avoid a crash bug
+            // in `UIPageViewController` when animating to a new view controller.
+            DispatchQueue.main.async {
+                self.pageViewController.dataSource = nil
+                self.updateTabBarOffset(self.tabBar.frame.size.height)
+            }
         }
     }
     
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if navigationController.viewControllers.first == viewController {
-            self.pageViewController.dataSource = self
-            updateTabBarOffset(0)
+            // We need to wrap the animation in a GCD block to avoid a crash bug
+            // in `UIPageViewController` when animating to a new view controller.
+            DispatchQueue.main.async {
+                self.pageViewController.dataSource = self
+                self.updateTabBarOffset(0)
+            }
         }
     }
     
     /// Updates the tab bar's bottom constraint.
+    ///
+    /// - parameter constant: The new bottom constraint constant.
     func updateTabBarOffset(_ constant: CGFloat) {
         if self.tabBarBottomConstraint?.constant != constant {
-            // We need to wrap the animation in a GCD block to avoid a crash bug
-            // in `UIPageViewController` when animating to a new view controller.
-            DispatchQueue.main.async {
+            self.view.layoutIfNeeded()
+            self.tabBarBottomConstraint?.constant = constant
+            UIView.animate(withDuration: Config.AnimationDuration, animations: {
                 self.view.layoutIfNeeded()
-                self.tabBarBottomConstraint?.constant = constant
-                UIView.animate(withDuration: Config.AnimationDuration, animations: {
-                    self.view.layoutIfNeeded()
-                })
-            }
+            })
         }
     }
 }
