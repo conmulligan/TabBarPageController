@@ -1,9 +1,9 @@
 # TabBarPageController
 
-[![CI Status](https://img.shields.io/travis/conmulligan/TabBarPageController?style=flat)](https://travis-ci.org/conmulligan/TabBarPageController)
-[![Version](https://img.shields.io/cocoapods/v/TabBarPageController?style=flat)](https://cocoapods.org/pods/TabBarPageController)
-[![License](https://img.shields.io/cocoapods/l/TabBarPageController?style=flat)](https://cocoapods.org/pods/TabBarPageController)
-[![Platform](https://img.shields.io/cocoapods/p/TabBarPageController?style=flat)](https://cocoapods.org/pods/TabBarPageController)
+[![CI Status](https://img.shields.io/travis/conmulligan/TabBarPageController.svg)](https://travis-ci.org/conmulligan/TabBarPageController)
+[![Version](https://img.shields.io/cocoapods/v/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
+[![License](https://img.shields.io/cocoapods/l/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
+[![Platform](https://img.shields.io/cocoapods/p/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 
 `TabBarPageController` is a container view controller that manages navigation between tabs of content. Each tab is managed by a child view controller embedded in a `UIPageViewController` instance, allowing users to navigate between tabs by selecting tab bar items or swiping left and right.
 
