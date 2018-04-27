@@ -7,9 +7,9 @@
 
 `TabBarPageController` is a container view controller that manages navigation between pages of content. Each page is managed by a child view controller embedded in a `UIPageViewController` instance, allowing users to navigate between tabs by selecting tab bar items or swiping left and right.
 
-[![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/1%400.5x.jpg | width=100)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/1%400.5x.jpg)
-[![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/2%400.5x.jpg)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/2%400.5x.jpg)
-[![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/3%400.5x.jpg)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/3%400.5x.jpg)
+[![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/1_sm.png)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/1.png)
+[![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/2_sm.png)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/2.png)
+[![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/3_sm.png)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/3.png)
 
 ## Usage
 
