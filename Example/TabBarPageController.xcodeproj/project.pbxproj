@@ -196,10 +196,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = D79X9D728B;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = D79X9D728B;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -449,10 +451,11 @@
 			baseConfigurationReference = FA6478A4D24705798784CCD3 /* Pods-TabBarPageController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D79X9D728B;
 				INFOPLIST_FILE = TabBarPageController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.conormulligan.TabBarPageController-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -464,10 +467,11 @@
 			baseConfigurationReference = 6E440AE738FB4D805C0C1517 /* Pods-TabBarPageController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D79X9D728B;
 				INFOPLIST_FILE = TabBarPageController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.conormulligan.TabBarPageController-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -478,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B9FEF6DC93CEFD3EBA3F836 /* Pods-TabBarPageController_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = D79X9D728B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/TabBarPageController\"",
@@ -499,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC747B7127056B71D0E5A17F /* Pods-TabBarPageController_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = D79X9D728B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/TabBarPageController\"",

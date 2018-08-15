@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 [![Platform](https://img.shields.io/cocoapods/p/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 
-`TabBarPageController` is a container view controller that manages navigation between pages of content. Each page is managed by a child view controller embedded in a `UIPageViewController` instance, allowing users to navigate between tabs by selecting tab bar items or swiping left and right.
+`TabBarPageController` is a container view controller that manages navigation between pages of content. Each page is represented by a child view controller embedded in a `UIPageViewController` instance, allowing users to navigate between pages by either selecting tab bar items or swiping left and right.
 
 [![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/1_sm.png)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/1.png)
 [![](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/2_sm.png)](https://raw.githubusercontent.com/conmulligan/TabBarPageController/master/Example/Screenshots/2.png)
@@ -28,7 +28,7 @@ Show a specific view controller:
 
 You can configure the appearance of tab bar items by changing the child view controllers' `UITabBarItem` values.
 
-Although `TabBarPageController` is similar to `UITabBarController` it is not a drop-in replacement and has a number of important differences:
+Although `TabBarPageController` is similar to `UITabBarController`, it's not a drop-in replacement and includes a number of important differences:
 
 - `TabBarPageController` always hides the tab bar when a child navigation view controller pushes a new view controller. This is to avoid interfering with the navigation controller's back navigation gesture.
 - Editing and the "more" navigation controller are not supported.
@@ -53,7 +53,7 @@ You can also just copy the `TabBarPageController.swift` file into your project.
 
 ## Author
 
-conmulligan, conmulligan@gmail.com
+Conor Mulligan, conmulligan@gmail.com
 
 ## License
 

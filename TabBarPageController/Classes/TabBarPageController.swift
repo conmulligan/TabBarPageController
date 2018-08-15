@@ -32,18 +32,20 @@ open class TabBarPageController: UIViewController {
     
     /// An struct of configuration variables.
     internal struct Config {
-        static let PageSpacing: CGFloat = 10
-        static let VerticalHeight: CGFloat = 50
-        static let HorizontalHeight: CGFloat = 34
-        static let AnimationDuration: Double = 0.2
+        static let pageSpacing: CGFloat = 10
+        static let verticalHeight: CGFloat = 50
+        static let horizontalHeight: CGFloat = 34
+        static let animationDuration: Double = 0.2
     }
     
     /// The page controller instance.
     open lazy var pageViewController: UIPageViewController = {
         let options = [
-            UIPageViewControllerOptionInterPageSpacingKey: Config.PageSpacing
+            UIPageViewControllerOptionInterPageSpacingKey: Config.pageSpacing
         ]
-        let viewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal,  options: options)
+        let viewController = UIPageViewController(transitionStyle: .scroll,
+                                                  navigationOrientation: .horizontal,
+                                                  options: options)
         viewController.dataSource = self
         viewController.delegate = self
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,14 +60,14 @@ open class TabBarPageController: UIViewController {
         return tabBar
     }()
     
+    /// A list of view controllers, each of which is represented by a tab.
+    open private(set) var viewControllers = [UIViewController]()
+    
     /// The tab bar's height constraint.
     internal var tabBarHeightConstraint: NSLayoutConstraint?
     
     /// The tab bar's bottom layout constraint.
     internal var tabBarBottomConstraint: NSLayoutConstraint?
-    
-    /// A list of view controllers, each of which is represented by a tab.
-    internal var viewControllers = [UIViewController]()
     
     // MARK: - View Lifecycle
     
@@ -84,7 +86,7 @@ open class TabBarPageController: UIViewController {
         self.tabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.tabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         
-        self.tabBarHeightConstraint = self.tabBar.heightAnchor.constraint(equalToConstant: Config.VerticalHeight)
+        self.tabBarHeightConstraint = self.tabBar.heightAnchor.constraint(equalToConstant: Config.verticalHeight)
         self.tabBarHeightConstraint?.isActive = true
         
         self.tabBarBottomConstraint = self.tabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
@@ -101,7 +103,8 @@ open class TabBarPageController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override open func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    override open func willTransition(to newCollection: UITraitCollection,
+                                      with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
         
         self.layoutFor(traitCollection: newCollection)
@@ -124,9 +127,9 @@ open class TabBarPageController: UIViewController {
         var height: CGFloat = 0
         
         if traitCollection.verticalSizeClass == .compact {
-            height = Config.HorizontalHeight
+            height = Config.horizontalHeight
         } else {
-            height = Config.VerticalHeight
+            height = Config.verticalHeight
         }
         
         if #available(iOS 11.0, *) {
@@ -145,7 +148,7 @@ open class TabBarPageController: UIViewController {
         self.viewControllers.append(viewController)
         self.updateTabBarItems()
         
-        if viewController is UINavigationController, let navigationController = viewController as? UINavigationController {
+        if let navigationController = viewController as? UINavigationController {
             navigationController.delegate = self
         }
         
@@ -165,7 +168,7 @@ open class TabBarPageController: UIViewController {
         }
         self.updateTabBarItems()
         
-        if viewController is UINavigationController, let navigationController = viewController as? UINavigationController {
+        if let navigationController = viewController as? UINavigationController {
             navigationController.delegate = nil
         }
         
@@ -178,7 +181,8 @@ open class TabBarPageController: UIViewController {
     ///
     /// - parameter viewController: The view controller to show.
     open func show(_ viewController: UIViewController) {
-        if self.pageViewController.viewControllers?.first == nil || self.pageViewController.viewControllers!.first! != viewController {
+        let first = self.pageViewController.viewControllers?.first
+        if first == nil || first != viewController {
             var direction = UIPageViewControllerNavigationDirection.forward
             let idx = self.viewControllers.index(of: viewController)!
             
@@ -208,7 +212,7 @@ open class TabBarPageController: UIViewController {
     /// - parameter viewController: The view controller instance to update.
     private func updateContentInset(viewController: UIViewController) {
         func setContentInset(scrollView: UIScrollView) {
-            let inset = self.view.traitCollection.verticalSizeClass == .compact ? Config.HorizontalHeight : Config.VerticalHeight
+            let inset = self.view.traitCollection.verticalSizeClass == .compact ? Config.horizontalHeight : Config.verticalHeight
             
             var contentInset = scrollView.contentInset
             contentInset.bottom = inset
@@ -239,7 +243,8 @@ extension TabBarPageController: UIPageViewControllerDataSource, UIPageViewContro
     
     // MARK: - Page View Controller Data Source
     
-    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = 0
         
         if let i = self.viewControllers.index(of: viewController) {
@@ -253,7 +258,8 @@ extension TabBarPageController: UIPageViewControllerDataSource, UIPageViewContro
         return self.viewControllers[index]
     }
     
-    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   viewControllerAfter viewController: UIViewController) -> UIViewController? {
         var index = 0
         
         if let i = self.viewControllers.index(of: viewController) {
@@ -269,7 +275,10 @@ extension TabBarPageController: UIPageViewControllerDataSource, UIPageViewContro
     
     // MARK: - Page View Controller Delegate
     
-    public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   didFinishAnimating finished: Bool,
+                                   previousViewControllers: [UIViewController],
+                                   transitionCompleted completed: Bool) {
         guard completed else { return }
         
         if let viewController = pageViewController.viewControllers?.first {
@@ -293,38 +302,52 @@ extension TabBarPageController: UITabBarDelegate, UINavigationControllerDelegate
     
     // MARK: - Navigation Controller Delegate
     
-    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController,
+                                     willShow viewController: UIViewController,
+                                     animated: Bool) {
         if navigationController.viewControllers.first != viewController {
-            // We need to wrap the animation in a GCD block to avoid a crash bug
-            // in `UIPageViewController` when animating to a new view controller.
-            DispatchQueue.main.async {
-                self.pageViewController.dataSource = nil
-                self.updateTabBarOffset(self.tabBar.frame.size.height)
-            }
+            self.disableScrolling()
+            self.updateTabBarOffset(self.tabBar.frame.size.height)
         }
     }
     
-    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController,
+                                     didShow viewController: UIViewController,
+                                     animated: Bool) {
         if navigationController.viewControllers.first == viewController {
-            // We need to wrap the animation in a GCD block to avoid a crash bug
-            // in `UIPageViewController` when animating to a new view controller.
-            DispatchQueue.main.async {
-                self.pageViewController.dataSource = self
-                self.updateTabBarOffset(0)
-            }
+            self.enableScrolling()
+            self.updateTabBarOffset(0)
         }
     }
     
     /// Updates the tab bar's bottom constraint.
     ///
     /// - parameter constant: The new bottom constraint constant.
-    func updateTabBarOffset(_ constant: CGFloat) {
+    private func updateTabBarOffset(_ constant: CGFloat) {
         if self.tabBarBottomConstraint?.constant != constant {
             self.view.layoutIfNeeded()
             self.tabBarBottomConstraint?.constant = constant
-            UIView.animate(withDuration: Config.AnimationDuration, animations: {
+            UIView.animate(withDuration: Config.animationDuration, animations: {
                 self.view.layoutIfNeeded()
             })
+        }
+    }
+    
+    /// Disables scrolling on the page controller's internal scroll view.
+    private func disableScrolling() {
+        for view in self.pageViewController.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = false
+            }
+        }
+    }
+    
+    /// Enables scrolling on the page controller's internal scroll view.
+    private func enableScrolling() {
+        for view in self.pageViewController.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = true
+            }
         }
     }
 }

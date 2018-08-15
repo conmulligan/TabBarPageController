@@ -6,7 +6,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Circle@2x.pdf",
+      "filename" : "Plus@2x.pdf",
       "scale" : "2x"
     },
     {
@@ -17,8 +17,5 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }
