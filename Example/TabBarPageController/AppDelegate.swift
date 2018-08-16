@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  TabBarPageController
 //
-//  Created by Conor Mulligan on 04/25/2018.
-//  Copyright (c) 2018 Conor Mulligan. All rights reserved.
+//  Created by Conor Mulligan on 25/04/2018.
+//  Copyright © 2018 Conor Mulligan. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal

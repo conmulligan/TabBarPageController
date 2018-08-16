@@ -60,6 +60,10 @@ open class TabBarPageController: UIViewController {
         return tabBar
     }()
     
+    open override var childViewControllerForStatusBarStyle: UIViewController? {
+        return self.pageViewController.viewControllers?.first
+    }
+    
     /// A list of view controllers, each of which is represented by a tab.
     open private(set) var viewControllers = [UIViewController]()
     
@@ -101,6 +105,12 @@ open class TabBarPageController: UIViewController {
     
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     override open func willTransition(to newCollection: UITraitCollection,
@@ -182,6 +192,7 @@ open class TabBarPageController: UIViewController {
     /// - parameter viewController: The view controller to show.
     open func show(_ viewController: UIViewController) {
         let first = self.pageViewController.viewControllers?.first
+        
         if first == nil || first != viewController {
             var direction = UIPageViewControllerNavigationDirection.forward
             let idx = self.viewControllers.index(of: viewController)!
@@ -193,6 +204,8 @@ open class TabBarPageController: UIViewController {
             self.pageViewController.setViewControllers([viewController], direction: direction, animated: true, completion: nil)
             self.tabBar.selectedItem = self.tabBar.items![idx]
         }
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     /// Iterates over the current child view controllers and adds their `UITabBarItem`s to the tab bar.
@@ -284,6 +297,7 @@ extension TabBarPageController: UIPageViewControllerDataSource, UIPageViewContro
         if let viewController = pageViewController.viewControllers?.first {
             if let idx = self.viewControllers.index(of: viewController) {
                 self.tabBar.selectedItem = self.tabBar.items![idx]
+                self.setNeedsStatusBarAppearanceUpdate()
             }
         }
     }
@@ -309,6 +323,8 @@ extension TabBarPageController: UITabBarDelegate, UINavigationControllerDelegate
             self.disableScrolling()
             self.updateTabBarOffset(self.tabBar.frame.size.height)
         }
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     public func navigationController(_ navigationController: UINavigationController,

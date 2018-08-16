@@ -68,6 +68,7 @@
 		D49731D3C9F81F770F2FB115BFFA7249 /* Pods_TabBarPageController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabBarPageController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C455DD038A8ED5B2473450D1DBB1E2 /* Pods-TabBarPageController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TabBarPageController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DE0384801C732CD80DDA29D915526735 /* TabBarPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TabBarPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A8759F21261EFF00CDCB56 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		E249DAEC8CA1E5246BC7BCFE53437C19 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6947F901FADA1356F62CCE7C973F4AB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF84F1BA7945B4364C1B3E669E7AD7A6 /* Pods-TabBarPageController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TabBarPageController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 			children = (
 				65DF0E0CC9B45A56F32140F2094BCCF1 /* LICENSE */,
 				8C9A152C4CB8C050FD89DC9ED4F1A25C /* README.md */,
+				E1A8759F21261EFF00CDCB56 /* CHANGELOG.md */,
 				87A2232F11512DB06DCF66A429CE68FC /* TabBarPageController.podspec */,
 			);
 			name = Pod;

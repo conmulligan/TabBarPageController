@@ -43,7 +43,7 @@ Requires iOS 9 or greater.
 
 ## Installation
 
-`TabBarPageController` is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+`TabBarPageController` is available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile:
 
 ```ruby
 pod 'TabBarPageController'
