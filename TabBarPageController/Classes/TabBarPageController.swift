@@ -41,7 +41,7 @@ open class TabBarPageController: UIViewController {
     /// The page controller instance.
     open lazy var pageViewController: UIPageViewController = {
         let options = [
-            UIPageViewControllerOptionInterPageSpacingKey: Config.pageSpacing
+            UIPageViewController.OptionsKey.interPageSpacing: Config.pageSpacing
         ]
         let viewController = UIPageViewController(transitionStyle: .scroll,
                                                   navigationOrientation: .horizontal,
@@ -60,7 +60,11 @@ open class TabBarPageController: UIViewController {
         return tabBar
     }()
     
-    open override var childViewControllerForStatusBarStyle: UIViewController? {
+    open override var childForStatusBarStyle: UIViewController? {
+        return self.pageViewController.viewControllers?.first
+    }
+    
+    open override var childForStatusBarHidden: UIViewController? {
         return self.pageViewController.viewControllers?.first
     }
     
@@ -194,7 +198,7 @@ open class TabBarPageController: UIViewController {
         let first = self.pageViewController.viewControllers?.first
         
         if first == nil || first != viewController {
-            var direction = UIPageViewControllerNavigationDirection.forward
+            var direction = UIPageViewController.NavigationDirection.forward
             let idx = self.viewControllers.index(of: viewController)!
             
             if let vc = self.pageViewController.viewControllers?.first, let prevIdx = self.viewControllers.index(of: vc), prevIdx > idx {
@@ -334,6 +338,8 @@ extension TabBarPageController: UITabBarDelegate, UINavigationControllerDelegate
             self.enableScrolling()
             self.updateTabBarOffset(0)
         }
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     /// Updates the tab bar's bottom constraint.

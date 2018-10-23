@@ -52,8 +52,8 @@ class ViewController: UIViewController {
         }
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 44))
-        button.setTitle(NSLocalizedString("Push View Controller", comment: ""), for: UIControlState())
-        button.setTitleColor(self.view.tintColor, for: UIControlState())
+        button.setTitle(NSLocalizedString("Push View Controller", comment: ""), for: UIControl.State())
+        button.setTitleColor(self.view.tintColor, for: UIControl.State())
         button.center = self.view.center
         button.addTarget(self, action: #selector(pushViewController(_:)), for: .touchUpInside)
         self.view.addSubview(button)
@@ -69,9 +69,27 @@ class ViewController: UIViewController {
         self.toggleBarButtonItems()
         
         if self.navigationController?.viewControllers.count == 1 {
-            self.navigationController?.navigationBar.barStyle = .black
-        } else {
             self.navigationController?.navigationBar.barStyle = .default
+            self.navigationController?.navigationBar.tintColor = UIColor.black
+            self.navigationController?.navigationBar.barTintColor = UIColor.lightGray
+        } else {
+            self.navigationController?.navigationBar.barStyle = .black
+            self.navigationController?.navigationBar.tintColor = UIColor.white
+            self.navigationController?.navigationBar.barTintColor = UIColor.red
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.navigationController?.viewControllers.count == 1 {
+            self.navigationController?.navigationBar.barStyle = .default
+            self.navigationController?.navigationBar.tintColor = UIColor.black
+            self.navigationController?.navigationBar.barTintColor = UIColor.lightGray
+        } else {
+            self.navigationController?.navigationBar.barStyle = .black
+            self.navigationController?.navigationBar.tintColor = UIColor.white
+            self.navigationController?.navigationBar.barTintColor = UIColor.red
         }
     }
     
