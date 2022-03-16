@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.2.0](https://github.com/conmulligan/TabBarPageController/releases/tag/0.1.4) (16-03-2022)
+* Update to Swift 5.5.
+* Refactored API.
+
 ## [0.1.4](https://github.com/conmulligan/TabBarPageController/releases/tag/0.1.4) (23-10-2018)
 
 #### Changed

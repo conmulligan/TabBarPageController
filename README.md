@@ -15,14 +15,14 @@
 Create a `TabBarPageController` instance and add view controllers to it:
 
 ```swift
-    let tabBarController = TabBarPageController()
-    tabBarController.addViewController(viewController)
+let tabBarController = TabBarPageController()
+tabBarController.addViewController(viewController)
 ```
 
 Show a specific view controller:
 
 ```swift
-    tabBarController.showViewController(viewController)
+tabBarController.showViewController(viewController)
 ```
 
 You can configure the appearance of tab bar items by changing the child view controllers' `UITabBarItem` values.
@@ -42,14 +42,19 @@ Requires iOS 13.0 or greater.
 
 ## Installation
 
+`TabBarPageController` can be installed using the following methods:
+
+### Swift Package Manager (Recommended)
 `TabBarPageController` is available through the Swift Package Manager. To use `TabBarPageController` with SPM, add https://github.com/conmulligan/TabBarPageController.swift.git as a dependency.
 
-`TabBarPageController` is also available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile:
+### CocoaPods
+`TabBarPageController` is available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile:
 
 ```ruby
 pod 'TabBarPageController'
 ```
 
+### Manual Installation
 You can also just copy the `TabBarPageController.swift` file into your project.
 
 ## License
