@@ -1,6 +1,5 @@
 # TabBarPageController
 
-[![CI Status](https://img.shields.io/travis/conmulligan/TabBarPageController.svg)](https://travis-ci.org/conmulligan/TabBarPageController)
 [![Version](https://img.shields.io/cocoapods/v/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 [![License](https://img.shields.io/cocoapods/l/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 [![Platform](https://img.shields.io/cocoapods/p/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
@@ -17,13 +16,13 @@ Create a `TabBarPageController` instance and add view controllers to it:
 
 ```swift
     let tabBarController = TabBarPageController()
-    tabBarController.add(viewController)
+    tabBarController.addViewController(viewController)
 ```
 
 Show a specific view controller:
 
 ```swift
-    tabBarController.show(viewController)
+    tabBarController.showViewController(viewController)
 ```
 
 You can configure the appearance of tab bar items by changing the child view controllers' `UITabBarItem` values.
@@ -35,25 +34,23 @@ Although `TabBarPageController` is similar to `UITabBarController`, it's not a d
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+An example project is included under the /Example directory.
 
 ## Requirements
 
-Requires iOS 9 or greater.
+Requires iOS 13.0 or greater.
 
 ## Installation
 
-`TabBarPageController` is available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile:
+`TabBarPageController` is available through the Swift Package Manager. To use `TabBarPageController` with SPM, add https://github.com/conmulligan/TabBarPageController.swift.git as a dependency.
+
+`TabBarPageController` is also available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile:
 
 ```ruby
 pod 'TabBarPageController'
 ```
 
 You can also just copy the `TabBarPageController.swift` file into your project.
-
-## Author
-
-Conor Mulligan, conmulligan@gmail.com
 
 ## License
 

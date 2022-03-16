@@ -1,6 +1,0 @@
-framework module Pods_TabBarPageController_Example {
-  umbrella header "Pods-TabBarPageController_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

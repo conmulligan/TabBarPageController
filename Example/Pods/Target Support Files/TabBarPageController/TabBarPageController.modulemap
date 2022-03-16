@@ -1,6 +1,0 @@
-framework module TabBarPageController {
-  umbrella header "TabBarPageController-umbrella.h"
-
-  export *
-  module * { export * }
-}
