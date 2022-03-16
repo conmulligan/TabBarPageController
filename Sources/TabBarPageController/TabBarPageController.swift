@@ -110,7 +110,9 @@ open class TabBarPageController: UIViewController {
         super.viewDidLoad()
 
         // Add subviews.
+        addChild(pageViewController)
         [pageViewController.view, tabBar].forEach { view.addSubview($0) }
+        pageViewController.didMove(toParent: self)
 
         // Create tab bar constraints.
         tabBarHeightConstraint = tabBar.heightAnchor.constraint(equalToConstant: configuration.regularTabBarHeight)
