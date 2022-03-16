@@ -15,4 +15,4 @@ jobs:
     - name: Build
       run: xcodebuild -scheme TabBarPageController -destination "platform=iOS Simulator,OS=latest,name=iPhone 13" -disableAutomaticPackageResolution
     - name: Run tests
-      run: xcodebuild test -scheme TabBarPageController -destination "platform=iOS Simulator,OS=latest,name=iPhone 13" -disableAutomaticPackageResolution
+      run: xcodebuild test -scheme TabBarPageControllerTests -destination "platform=iOS Simulator,OS=latest,name=iPhone 13" -disableAutomaticPackageResolution
