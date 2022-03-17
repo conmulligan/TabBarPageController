@@ -21,9 +21,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "TabBarPageController",
-            dependencies: []),
+            dependencies: [],
+            path: "Sources"),
         .testTarget(
             name: "TabBarPageControllerTests",
-            dependencies: ["TabBarPageController"]),
+            dependencies: ["TabBarPageController"],
+            path: "Tests"),
     ]
 )

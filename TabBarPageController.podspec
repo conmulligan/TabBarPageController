@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TabBarPageController'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'A container view controller that manages navigation between pages of content using a tab bar.'
   s.homepage         = 'https://github.com/conmulligan/TabBarPageController'
