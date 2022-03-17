@@ -1,5 +1,6 @@
 # TabBarPageController
 
+[![Swift](https://github.com/conmulligan/TabBarPageController/actions/workflows/swift.yml/badge.svg)](https://github.com/conmulligan/TabBarPageController/actions/workflows/swift.yml)
 [![Version](https://img.shields.io/cocoapods/v/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 [![License](https://img.shields.io/cocoapods/l/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
 [![Platform](https://img.shields.io/cocoapods/p/TabBarPageController.svg)](https://cocoapods.org/pods/TabBarPageController)
@@ -45,7 +46,7 @@ Requires iOS 13.0 or greater.
 `TabBarPageController` can be installed using the following methods:
 
 ### Swift Package Manager (Recommended)
-`TabBarPageController` is available through the Swift Package Manager. To use `TabBarPageController` with SPM, add https://github.com/conmulligan/TabBarPageController.swift.git as a dependency.
+`TabBarPageController` is available through the Swift Package Manager. To use `TabBarPageController` with SPM, add https://github.com/conmulligan/TabBarPageController.git as a dependency.
 
 ### CocoaPods
 `TabBarPageController` is available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your Podfile:
