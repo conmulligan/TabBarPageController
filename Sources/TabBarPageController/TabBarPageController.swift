@@ -26,8 +26,29 @@ import UIKit
 import OSLog
 
 /// A container view controller that manages navigation between tabs of content.
-/// Each tab is managed by a child view controller embedded in a `UIPageViewController` instance,
+/// Each tab is represented by a child view controller embedded in a `UIPageViewController` instance,
 /// allowing users to navigate between tabs by either selecting the appropriate tab bar item or swiping left and right.
+///
+/// Create a `TabBarPageController` instance and add view controllers to it:
+///
+/// ```swift
+/// let tabBarController = TabBarPageController()
+/// tabBarController.addViewController(viewController)
+/// ```
+///
+/// Show a specific view controller:
+///
+/// ```swift
+/// tabBarController.showViewController(viewController)
+/// ```
+///
+/// You can configure the appearance of tab bar items by changing the child view controllers' `UITabBarItem` values.
+///
+/// Note: although `TabBarPageController` is similar to `UITabBarController`, it's not a drop-in replacement and includes a number of important differences:
+///
+/// - `TabBarPageController` always hides the tab bar when a child navigation view controller pushes a new view controller.
+/// This is to avoid interfering with the navigation controller's back navigation gesture.
+/// - Editing and the "more" navigation controller are not supported.
 open class TabBarPageController: UIViewController {
 
     /// Represents the `TabBarPageController` configuration.
